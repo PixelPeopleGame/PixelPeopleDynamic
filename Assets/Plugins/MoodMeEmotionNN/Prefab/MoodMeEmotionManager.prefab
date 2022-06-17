@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8297278046940101662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8297278046940101660}
+  - component: {fileID: 8297278046940101663}
+  m_Layer: 0
+  m_Name: MoodMeEmotionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8297278046940101660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297278046940101662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8297278046940101663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297278046940101662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edf55f1c115c6848be5547e2bc3953d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Email: robverhaar.madlab@gmail.com
+  AndroidLicense: QwlnEdxYQsP9lW0aWup6kD7YodQsMQYFl5C+and7ovLA4QDNXRXDCp8jdmfBdL20OiMxwyCrcfj9kEzzO3s52li4vEwkIWUqBaZluQ0bAQs8a6oxGYomfRqIVgZO54+hx6C3t4PgiPpAC+E7NGaXPmT2V7gi40a60mDsBbxtdPZvlTvHy/ZWJ7/KU1uubBi/13SCGnbykXynoO2F0Ph9+mvna6osLbVLHPMUaHuQZu7e8pvhmS0xBYjxTEwi2rwjDSYcnYNj94cMccsbzxC+flMyK1KDoGPTI6CKo/bhu785HVKjLGSrTMHow73URlWtNyNQthrssWELVV1bpKyMKA==
+  IosLicense: 
+  OsxLicense: 
+  WindowsLicense: 
+  VideoInput: {fileID: 0}
+  ProcessEveryNFrames: 15
+  FilterAllZeros: 1
+  Smoothing: 15
+  TestMode: 0
+  Angry: 0
+  Disgust: 0
+  Happy: 0
+  Neutral: 0
+  Sad: 0
+  Scared: 0
+  Surprised: 0

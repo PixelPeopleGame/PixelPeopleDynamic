@@ -1,0 +1,375 @@
+{
+  "layer_shapes" : {
+    "fire7_squeeze_bn\/batchnorm\/add_1" : {
+      "k" : 48,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "max_pool_1" : {
+      "k" : 256,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire3_expand_merge\/concat" : {
+      "k" : 128,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "conv1\/Relu" : {
+      "k" : 96,
+      "w" : 47,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 47
+    },
+    "fire7_expand_merge\/concat" : {
+      "k" : 384,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "max_pool_2" : {
+      "k" : 384,
+      "w" : 5,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire5_squeeze_bn\/batchnorm\/add_1" : {
+      "k" : 32,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire9_expand_1x1\/Relu" : {
+      "k" : 256,
+      "w" : 5,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "conv10_bn\/batchnorm\/sub" : {
+      "k" : 1,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "input_2" : {
+      "k" : 3,
+      "w" : 100,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 100
+    },
+    "softmax\/Softmax" : {
+      "k" : 1,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "fire3_squeeze_bn\/batchnorm\/add_1" : {
+      "k" : 16,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire7_expand_1x1\/Relu" : {
+      "k" : 192,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire3_squeeze\/Relu" : {
+      "k" : 16,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire9_squeeze\/Relu" : {
+      "k" : 64,
+      "w" : 5,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire2_expand_merge\/concat" : {
+      "k" : 128,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "conv10\/BiasAdd" : {
+      "k" : 5,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire6_expand_merge\/concat" : {
+      "k" : 384,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire6_squeeze\/Relu" : {
+      "k" : 48,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire6_expand_1x1\/Relu" : {
+      "k" : 192,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "conv10_bn\/batchnorm\/mul" : {
+      "k" : 1,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "fire5_expand_1x1\/Relu" : {
+      "k" : 128,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "conv10\/convolution" : {
+      "k" : 5,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire4_expand_1x1\/Relu" : {
+      "k" : 128,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "conv10\/convolutionx" : {
+      "k" : 7,
+      "w" : 5,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "conv10_bn\/batchnorm\/add_1" : {
+      "k" : 5,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire9_expand_3x3\/Relu" : {
+      "k" : 256,
+      "w" : 5,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire3_expand_1x1\/Relu" : {
+      "k" : 64,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire5_expand_merge\/concat" : {
+      "k" : 256,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire6_squeeze_bn\/batchnorm\/add_1" : {
+      "k" : 48,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire7_expand_3x3\/Relu" : {
+      "k" : 192,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire2_expand_1x1\/Relu" : {
+      "k" : 64,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire2_squeeze\/Relu" : {
+      "k" : 16,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire5_squeeze\/Relu" : {
+      "k" : 32,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "fire9_expand_merge\/concat" : {
+      "k" : 512,
+      "w" : 5,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire6_expand_3x3\/Relu" : {
+      "k" : 192,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "conv10_bn\/batchnorm\/mul_1" : {
+      "k" : 5,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "avgpool10\/Mean_squeeze" : {
+      "k" : 1,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 1
+    },
+    "conv10_bn\/batchnorm\/add_11" : {
+      "k" : 1,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire4_squeeze_bn\/batchnorm\/add_1" : {
+      "k" : 32,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire5_expand_3x3\/Relu" : {
+      "k" : 128,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "conv10\/bias\/read" : {
+      "k" : 1,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 1,
+      "h" : 1
+    },
+    "avgpool10\/Mean" : {
+      "k" : 1,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "fire4_expand_3x3\/Relu" : {
+      "k" : 128,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire4_expand_merge\/concat" : {
+      "k" : 256,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire2_squeeze_bn\/batchnorm\/add_1" : {
+      "k" : 16,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire3_expand_3x3\/Relu" : {
+      "k" : 64,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire9_squeeze_bn\/batchnorm\/add_1" : {
+      "k" : 64,
+      "w" : 5,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "fire2_expand_3x3\/Relu" : {
+      "k" : 64,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire4_squeeze\/Relu" : {
+      "k" : 32,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    },
+    "fire7_squeeze\/Relu" : {
+      "k" : 48,
+      "w" : 11,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 11
+    },
+    "conv10\/Relu" : {
+      "k" : 5,
+      "w" : 7,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 5
+    },
+    "max_pool_0" : {
+      "k" : 96,
+      "w" : 23,
+      "n" : 1,
+      "_rank" : 4,
+      "h" : 23
+    }
+  }
+}

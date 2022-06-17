@@ -1,0 +1,69 @@
+[
+  {
+    "shortDescription" : "Emotions",
+    "metadataOutputVersion" : "3.0",
+    "outputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32)",
+        "shortDescription" : "",
+        "shape" : "[]",
+        "name" : "softmax\/Softmax",
+        "type" : "MultiArray"
+      }
+    ],
+    "version" : "1.0",
+    "modelParameters" : [
+
+    ],
+    "author" : "L.Y.Mesentsev",
+    "specificationVersion" : 4,
+    "license" : "Copyrighted by MoodMe LLC, All rights reserved",
+    "isUpdatable" : "0",
+    "availability" : {
+      "macOS" : "10.15",
+      "tvOS" : "13.0",
+      "watchOS" : "6.0",
+      "iOS" : "13.0",
+      "macCatalyst" : "13.0"
+    },
+    "modelType" : {
+      "name" : "MLModelType_neuralNetwork"
+    },
+    "inputSchema" : [
+      {
+        "height" : "100",
+        "colorspace" : "RGB",
+        "isOptional" : "0",
+        "width" : "100",
+        "isColor" : "1",
+        "formattedType" : "Image (Color 100 × 100)",
+        "hasSizeFlexibility" : "0",
+        "type" : "Image",
+        "shortDescription" : "",
+        "name" : "input_2"
+      }
+    ],
+    "userDefinedMetadata" : {
+      "com.github.apple.coremltools.version" : "4.0",
+      "com.github.apple.coremltools.source" : "tensorflow==1.15.0"
+    },
+    "generatedClassName" : "Emotions",
+    "neuralNetworkLayerTypeHistogram" : {
+      "Concat" : 7,
+      "MultiplyBroadcastable" : 1,
+      "ReduceMean" : 1,
+      "ActivationReLU" : 23,
+      "Transpose" : 1,
+      "SoftmaxND" : 1,
+      "LoadConstantND" : 3,
+      "BatchNorm" : 7,
+      "Convolution" : 23,
+      "AddBroadcastable" : 2,
+      "PoolingMax" : 3
+    },
+    "method" : "predict"
+  }
+]

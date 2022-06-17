@@ -1,0 +1,1095 @@
+{
+  "transform_params" : {
+    "input_2" : {
+      "bias_a" : 0,
+      "bias_g" : 0,
+      "bias_r" : 0,
+      "bias_b" : 0,
+      "center_mean" : 0,
+      "is_network_bgr" : 0,
+      "scale" : 0.0039215688593685627
+    }
+  },
+  "properties" : {
+
+  },
+  "analyses" : {
+
+  },
+  "format_version" : 200,
+  "storage" : "model.espresso.weights",
+  "layers" : [
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "conv1\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv1\/Relu",
+      "blob_weights" : 3,
+      "K" : 3,
+      "blob_biases" : 1,
+      "stride_x" : 2,
+      "name" : "conv1\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "stride_y" : 2,
+      "has_biases" : 1,
+      "C" : 96,
+      "bottom" : "input_2",
+      "weights" : {
+
+      },
+      "Nx" : 7,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 7,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "debug_info" : "max_pool_0",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "size_x" : 3,
+      "top" : "max_pool_0",
+      "top_shape_style" : 0,
+      "stride_x" : 2,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "max_pool_0",
+      "pad_t" : 0,
+      "stride_y" : 2,
+      "bottom" : "conv1\/Relu",
+      "weights" : {
+
+      },
+      "pad_mode" : 2,
+      "size_y" : 3,
+      "pad_value" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire2_squeeze\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire2_squeeze\/Relu",
+      "blob_weights" : 7,
+      "K" : 96,
+      "blob_biases" : 5,
+      "name" : "fire2_squeeze\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 16,
+      "bottom" : "max_pool_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "fire2_squeeze_bn\/batchnorm\/add_1",
+      "bottom" : "fire2_squeeze\/Relu",
+      "weights" : {
+
+      },
+      "debug_info" : "fire2_squeeze_bn\/batchnorm\/add_1",
+      "top" : "fire2_squeeze_bn\/batchnorm\/add_1",
+      "C" : 16,
+      "blob_batchnorm_params" : 9,
+      "type" : "batchnorm"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire2_expand_3x3\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire2_expand_3x3\/Relu",
+      "blob_weights" : 13,
+      "K" : 16,
+      "blob_biases" : 11,
+      "name" : "fire2_expand_3x3\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "fire2_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire2_expand_1x1\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire2_expand_1x1\/Relu",
+      "blob_weights" : 17,
+      "K" : 16,
+      "blob_biases" : 15,
+      "name" : "fire2_expand_1x1\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "fire2_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "fire2_expand_merge\/concat",
+      "top" : "fire2_expand_merge\/concat",
+      "type" : "concat",
+      "name" : "fire2_expand_merge\/concat",
+      "bottom" : "fire2_expand_1x1\/Relu,fire2_expand_3x3\/Relu"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire3_squeeze\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire3_squeeze\/Relu",
+      "blob_weights" : 21,
+      "K" : 128,
+      "blob_biases" : 19,
+      "name" : "fire3_squeeze\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 16,
+      "bottom" : "fire2_expand_merge\/concat",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "fire3_squeeze_bn\/batchnorm\/add_1",
+      "bottom" : "fire3_squeeze\/Relu",
+      "weights" : {
+
+      },
+      "debug_info" : "fire3_squeeze_bn\/batchnorm\/add_1",
+      "top" : "fire3_squeeze_bn\/batchnorm\/add_1",
+      "C" : 16,
+      "blob_batchnorm_params" : 23,
+      "type" : "batchnorm"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire3_expand_3x3\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire3_expand_3x3\/Relu",
+      "blob_weights" : 27,
+      "K" : 16,
+      "blob_biases" : 25,
+      "name" : "fire3_expand_3x3\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "fire3_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire3_expand_1x1\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire3_expand_1x1\/Relu",
+      "blob_weights" : 31,
+      "K" : 16,
+      "blob_biases" : 29,
+      "name" : "fire3_expand_1x1\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "fire3_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "fire3_expand_merge\/concat",
+      "top" : "fire3_expand_merge\/concat",
+      "type" : "concat",
+      "name" : "fire3_expand_merge\/concat",
+      "bottom" : "fire3_expand_1x1\/Relu,fire3_expand_3x3\/Relu"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire4_squeeze\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire4_squeeze\/Relu",
+      "blob_weights" : 35,
+      "K" : 128,
+      "blob_biases" : 33,
+      "name" : "fire4_squeeze\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 32,
+      "bottom" : "fire3_expand_merge\/concat",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "fire4_squeeze_bn\/batchnorm\/add_1",
+      "bottom" : "fire4_squeeze\/Relu",
+      "weights" : {
+
+      },
+      "debug_info" : "fire4_squeeze_bn\/batchnorm\/add_1",
+      "top" : "fire4_squeeze_bn\/batchnorm\/add_1",
+      "C" : 32,
+      "blob_batchnorm_params" : 37,
+      "type" : "batchnorm"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire4_expand_1x1\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire4_expand_1x1\/Relu",
+      "blob_weights" : 41,
+      "K" : 32,
+      "blob_biases" : 39,
+      "name" : "fire4_expand_1x1\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 128,
+      "bottom" : "fire4_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire4_expand_3x3\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire4_expand_3x3\/Relu",
+      "blob_weights" : 45,
+      "K" : 32,
+      "blob_biases" : 43,
+      "name" : "fire4_expand_3x3\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 128,
+      "bottom" : "fire4_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "fire4_expand_merge\/concat",
+      "top" : "fire4_expand_merge\/concat",
+      "type" : "concat",
+      "name" : "fire4_expand_merge\/concat",
+      "bottom" : "fire4_expand_1x1\/Relu,fire4_expand_3x3\/Relu"
+    },
+    {
+      "pad_r" : 0,
+      "debug_info" : "max_pool_1",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "size_x" : 3,
+      "top" : "max_pool_1",
+      "top_shape_style" : 0,
+      "stride_x" : 2,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "max_pool_1",
+      "pad_t" : 0,
+      "stride_y" : 2,
+      "bottom" : "fire4_expand_merge\/concat",
+      "weights" : {
+
+      },
+      "pad_mode" : 2,
+      "size_y" : 3,
+      "pad_value" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire5_squeeze\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire5_squeeze\/Relu",
+      "blob_weights" : 49,
+      "K" : 256,
+      "blob_biases" : 47,
+      "name" : "fire5_squeeze\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 32,
+      "bottom" : "max_pool_1",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "fire5_squeeze_bn\/batchnorm\/add_1",
+      "bottom" : "fire5_squeeze\/Relu",
+      "weights" : {
+
+      },
+      "debug_info" : "fire5_squeeze_bn\/batchnorm\/add_1",
+      "top" : "fire5_squeeze_bn\/batchnorm\/add_1",
+      "C" : 32,
+      "blob_batchnorm_params" : 51,
+      "type" : "batchnorm"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire5_expand_1x1\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire5_expand_1x1\/Relu",
+      "blob_weights" : 55,
+      "K" : 32,
+      "blob_biases" : 53,
+      "name" : "fire5_expand_1x1\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 128,
+      "bottom" : "fire5_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire5_expand_3x3\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire5_expand_3x3\/Relu",
+      "blob_weights" : 59,
+      "K" : 32,
+      "blob_biases" : 57,
+      "name" : "fire5_expand_3x3\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 128,
+      "bottom" : "fire5_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "fire5_expand_merge\/concat",
+      "top" : "fire5_expand_merge\/concat",
+      "type" : "concat",
+      "name" : "fire5_expand_merge\/concat",
+      "bottom" : "fire5_expand_1x1\/Relu,fire5_expand_3x3\/Relu"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire6_squeeze\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire6_squeeze\/Relu",
+      "blob_weights" : 63,
+      "K" : 256,
+      "blob_biases" : 61,
+      "name" : "fire6_squeeze\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 48,
+      "bottom" : "fire5_expand_merge\/concat",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "fire6_squeeze_bn\/batchnorm\/add_1",
+      "bottom" : "fire6_squeeze\/Relu",
+      "weights" : {
+
+      },
+      "debug_info" : "fire6_squeeze_bn\/batchnorm\/add_1",
+      "top" : "fire6_squeeze_bn\/batchnorm\/add_1",
+      "C" : 48,
+      "blob_batchnorm_params" : 65,
+      "type" : "batchnorm"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire6_expand_1x1\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire6_expand_1x1\/Relu",
+      "blob_weights" : 69,
+      "K" : 48,
+      "blob_biases" : 67,
+      "name" : "fire6_expand_1x1\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 192,
+      "bottom" : "fire6_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire6_expand_3x3\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire6_expand_3x3\/Relu",
+      "blob_weights" : 73,
+      "K" : 48,
+      "blob_biases" : 71,
+      "name" : "fire6_expand_3x3\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 192,
+      "bottom" : "fire6_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "fire6_expand_merge\/concat",
+      "top" : "fire6_expand_merge\/concat",
+      "type" : "concat",
+      "name" : "fire6_expand_merge\/concat",
+      "bottom" : "fire6_expand_1x1\/Relu,fire6_expand_3x3\/Relu"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire7_squeeze\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire7_squeeze\/Relu",
+      "blob_weights" : 77,
+      "K" : 384,
+      "blob_biases" : 75,
+      "name" : "fire7_squeeze\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 48,
+      "bottom" : "fire6_expand_merge\/concat",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "fire7_squeeze_bn\/batchnorm\/add_1",
+      "bottom" : "fire7_squeeze\/Relu",
+      "weights" : {
+
+      },
+      "debug_info" : "fire7_squeeze_bn\/batchnorm\/add_1",
+      "top" : "fire7_squeeze_bn\/batchnorm\/add_1",
+      "C" : 48,
+      "blob_batchnorm_params" : 79,
+      "type" : "batchnorm"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire7_expand_3x3\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire7_expand_3x3\/Relu",
+      "blob_weights" : 83,
+      "K" : 48,
+      "blob_biases" : 81,
+      "name" : "fire7_expand_3x3\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 192,
+      "bottom" : "fire7_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire7_expand_1x1\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire7_expand_1x1\/Relu",
+      "blob_weights" : 87,
+      "K" : 48,
+      "blob_biases" : 85,
+      "name" : "fire7_expand_1x1\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 192,
+      "bottom" : "fire7_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "fire7_expand_merge\/concat",
+      "top" : "fire7_expand_merge\/concat",
+      "type" : "concat",
+      "name" : "fire7_expand_merge\/concat",
+      "bottom" : "fire7_expand_1x1\/Relu,fire7_expand_3x3\/Relu"
+    },
+    {
+      "pad_r" : 0,
+      "debug_info" : "max_pool_2",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "size_x" : 3,
+      "top" : "max_pool_2",
+      "top_shape_style" : 0,
+      "stride_x" : 2,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "max_pool_2",
+      "pad_t" : 0,
+      "stride_y" : 2,
+      "bottom" : "fire7_expand_merge\/concat",
+      "weights" : {
+
+      },
+      "pad_mode" : 2,
+      "size_y" : 3,
+      "pad_value" : 0
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire9_squeeze\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire9_squeeze\/Relu",
+      "blob_weights" : 91,
+      "K" : 384,
+      "blob_biases" : 89,
+      "name" : "fire9_squeeze\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 64,
+      "bottom" : "max_pool_2",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "fire9_squeeze_bn\/batchnorm\/add_1",
+      "bottom" : "fire9_squeeze\/Relu",
+      "weights" : {
+
+      },
+      "debug_info" : "fire9_squeeze_bn\/batchnorm\/add_1",
+      "top" : "fire9_squeeze_bn\/batchnorm\/add_1",
+      "C" : 64,
+      "blob_batchnorm_params" : 93,
+      "type" : "batchnorm"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire9_expand_1x1\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire9_expand_1x1\/Relu",
+      "blob_weights" : 97,
+      "K" : 64,
+      "blob_biases" : 95,
+      "name" : "fire9_expand_1x1\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 256,
+      "bottom" : "fire9_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 1,
+      "fused_tanh" : 0,
+      "debug_info" : "fire9_expand_3x3\/BiasAdd",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "fire9_expand_3x3\/Relu",
+      "blob_weights" : 101,
+      "K" : 64,
+      "blob_biases" : 99,
+      "name" : "fire9_expand_3x3\/BiasAdd",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 256,
+      "bottom" : "fire9_squeeze_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "Nx" : 3,
+      "pad_mode" : 1,
+      "pad_value" : 0,
+      "Ny" : 3,
+      "n_parallel" : 1
+    },
+    {
+      "weights" : {
+
+      },
+      "debug_info" : "fire9_expand_merge\/concat",
+      "top" : "fire9_expand_merge\/concat",
+      "type" : "concat",
+      "name" : "fire9_expand_merge\/concat",
+      "bottom" : "fire9_expand_1x1\/Relu,fire9_expand_3x3\/Relu"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv10\/convolutionx",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv10\/convolutionx",
+      "blob_weights" : 103,
+      "K" : 512,
+      "name" : "conv10\/convolutionx",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 7,
+      "bottom" : "fire9_expand_merge\/concat",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "axis_h" : 0,
+      "axis_w" : 2,
+      "bottom" : "conv10\/convolutionx",
+      "axis_k" : 1,
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "debug_info" : "conv10\/convolution",
+      "top" : "conv10\/convolution",
+      "type" : "transpose",
+      "name" : "conv10\/convolution"
+    },
+    {
+      "top" : "conv10\/bias\/read",
+      "w" : 7,
+      "h" : 1,
+      "name" : "conv10\/bias\/read",
+      "nd_rank" : 1,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "conv10\/bias\/read",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 105
+    },
+    {
+      "bottom" : "conv10\/convolution,conv10\/bias\/read",
+      "alpha" : 1,
+      "operation" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "conv10\/BiasAdd",
+      "nd_mode" : true,
+      "top" : "conv10\/BiasAdd",
+      "type" : "elementwise",
+      "name" : "conv10\/BiasAdd",
+      "beta" : 0
+    },
+    {
+      "bottom" : "conv10\/BiasAdd",
+      "weights" : {
+
+      },
+      "mode" : 0,
+      "debug_info" : "conv10\/Relu",
+      "top" : "conv10\/Relu",
+      "type" : "activation",
+      "name" : "conv10\/Relu"
+    },
+    {
+      "top" : "conv10_bn\/batchnorm\/mul",
+      "w" : 7,
+      "h" : 1,
+      "name" : "conv10_bn\/batchnorm\/mul",
+      "nd_rank" : 1,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "conv10_bn\/batchnorm\/mul",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 107
+    },
+    {
+      "bottom" : "conv10\/Relu,conv10_bn\/batchnorm\/mul",
+      "alpha" : 1,
+      "operation" : 1,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "conv10_bn\/batchnorm\/mul_1",
+      "nd_mode" : true,
+      "top" : "conv10_bn\/batchnorm\/mul_1",
+      "type" : "elementwise",
+      "name" : "conv10_bn\/batchnorm\/mul_1",
+      "beta" : 0
+    },
+    {
+      "top" : "conv10_bn\/batchnorm\/sub",
+      "w" : 7,
+      "h" : 1,
+      "name" : "conv10_bn\/batchnorm\/sub",
+      "nd_rank" : 1,
+      "type" : "load_constant",
+      "k" : 1,
+      "bottom" : "",
+      "debug_info" : "conv10_bn\/batchnorm\/sub",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "constant_blob" : 109
+    },
+    {
+      "bottom" : "conv10_bn\/batchnorm\/mul_1,conv10_bn\/batchnorm\/sub",
+      "alpha" : 1,
+      "operation" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "conv10_bn\/batchnorm\/add_1",
+      "nd_mode" : true,
+      "top" : "conv10_bn\/batchnorm\/add_1",
+      "type" : "elementwise",
+      "name" : "conv10_bn\/batchnorm\/add_1",
+      "beta" : 0
+    },
+    {
+      "axis_mode" : 4,
+      "bottom" : "conv10_bn\/batchnorm\/add_1",
+      "weights" : {
+
+      },
+      "mode" : 1,
+      "nd_axis" : 1,
+      "nd_mode" : true,
+      "debug_info" : "avgpool10\/Mean",
+      "use_version" : 1,
+      "top" : "conv10_bn\/batchnorm\/add_11",
+      "type" : "reduce",
+      "name" : "avgpool10\/Mean0"
+    },
+    {
+      "axis_mode" : 2,
+      "bottom" : "conv10_bn\/batchnorm\/add_11",
+      "weights" : {
+
+      },
+      "mode" : 1,
+      "nd_axis" : 2,
+      "nd_mode" : true,
+      "debug_info" : "avgpool10\/Mean",
+      "use_version" : 1,
+      "top" : "avgpool10\/Mean_squeeze",
+      "type" : "reduce",
+      "name" : "avgpool10\/Mean"
+    },
+    {
+      "size_of_axes" : 2,
+      "bottom" : "avgpool10\/Mean_squeeze",
+      "axes_0" : 1,
+      "axes_1" : 2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "avgpool10\/Mean",
+      "version" : 1,
+      "top" : "avgpool10\/Mean",
+      "type" : "squeeze",
+      "name" : "avgpool10\/Mean"
+    },
+    {
+      "bottom" : "avgpool10\/Mean",
+      "weights" : {
+
+      },
+      "nd_axis" : -1,
+      "debug_info" : "softmax\/Softmax",
+      "top" : "softmax\/Softmax",
+      "type" : "softmax_nd",
+      "name" : "softmax\/Softmax",
+      "attributes" : {
+        "is_output" : 1
+      }
+    }
+  ]
+}
